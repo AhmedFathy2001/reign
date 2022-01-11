@@ -1,0 +1,81 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.modal {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.modal-title {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-wrapper {
+    width: 50%;
+    background-color: white;
+    padding: 20px 50px 50px 20px;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.fa-times {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.gone {
+    display: none;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin: 5px;
+    padding: .375rem .75rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -moz-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -ms-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -o-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
+}
+
+.modal-body {
+    margin-bottom: 2rem;
+}
+
+.modal-footer {
+    justify-content: end;
+}
