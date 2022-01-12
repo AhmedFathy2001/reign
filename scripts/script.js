@@ -4,24 +4,21 @@ let modal = document.getElementById('modal');
 let modalBtn = document.getElementById('modalBtn');
 let currentIndex = 0;
 
-modalFocus.forEach(button => {
+[closeBtn, closeIcon].forEach(button => {
     button.addEventListener('click', () => {
         modal.classList.add("gone");
         modalBtn.focus();
     });
 });
-closeIcon.addEventListener('click', () => {
-    modal.classList.add("gone");
-    modalBtn.focus();
-})
+
 document.addEventListener('keydown', e => {
     console.log(e.key);
     if (!modal.classList.contains("gone")) {
-        e.preventDefault();
         if (e.key == "Escape") {
             modal.classList.add("gone");
             modalBtn.focus();
         } else if (e.shiftKey && e.key == "Tab") {
+            e.preventDefault();
             if (currentIndex == 0) {
                 currentIndex = modalFocus.length - 1;
                 modalFocus[currentIndex].focus();
@@ -30,6 +27,7 @@ document.addEventListener('keydown', e => {
                 modalFocus[currentIndex].focus();
             }
         } else if (e.key == "Tab") {
+            e.preventDefault();
             if (currentIndex >= modalFocus.length - 1) {
                 currentIndex = 0;
                 console.log(currentIndex + "0");
