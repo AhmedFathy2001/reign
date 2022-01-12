@@ -39,7 +39,7 @@ document.addEventListener('keydown', e => {
             }
         }
     }
-})
+});
 
 modalBtn.addEventListener('click', () => {
     modal.classList.remove("gone");
