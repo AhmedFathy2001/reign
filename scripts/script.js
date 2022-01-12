@@ -2,8 +2,10 @@ let modalFocus = Array.from(document.querySelectorAll('.modal-focus'));
 let closeIcon = document.getElementById('closeIcon');
 let modal = document.getElementById('modal');
 let modalBtn = document.getElementById('modalBtn');
+//index to move around in the array of focusable elements
 let currentIndex = 0;
 
+//closeing buttons for the modal
 [closeBtn, closeIcon].forEach(button => {
     button.addEventListener('click', () => {
         modal.classList.add("gone");
@@ -11,36 +13,49 @@ let currentIndex = 0;
     });
 });
 
+//listens for keyboard clicks
 document.addEventListener('keydown', e => {
-    console.log(e.key);
+    //checks if the modal is open or not
     if (!modal.classList.contains("gone")) {
+        //closes the modal on escape button click
         if (e.key == "Escape") {
             modal.classList.add("gone");
             modalBtn.focus();
-        } else if (e.shiftKey && e.key == "Tab") {
+        }
+        // moves focus to previously focused element on shift + tab press
+        else if (e.shiftKey && e.key == "Tab") {
+            //prevents the default tab behavior 
             e.preventDefault();
+            //checks if the current focusable element is the first element if so it goes to the last focusable element
             if (currentIndex == 0) {
                 currentIndex = modalFocus.length - 1;
                 modalFocus[currentIndex].focus();
-            } else {
+            }
+            //moves focus to the previous element
+            else {
                 currentIndex--;
                 modalFocus[currentIndex].focus();
             }
-        } else if (e.key == "Tab") {
+        }
+        //moves focus to next focusable element on tab press
+        else if (e.key == "Tab") {
+            //prevents the default tab behavior 
             e.preventDefault();
+            //checks if the current focusable element is the last element if so it goes to the first focusable element
             if (currentIndex >= modalFocus.length - 1) {
                 currentIndex = 0;
-                console.log(currentIndex + "0");
                 modalFocus[currentIndex].focus();
-            } else {
+            }
+            //moves focus to the next element
+            else {
                 currentIndex++
-                console.log(currentIndex + "with +1");
                 modalFocus[currentIndex].focus();
             }
         }
     }
 });
 
+//opens the modal on button click
 modalBtn.addEventListener('click', () => {
     modal.classList.remove("gone");
     closeBtn.focus();
