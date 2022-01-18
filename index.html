@@ -11,19 +11,19 @@
 </head>
 
 <body>
-    <button id="modalBtn" class="btn">Open Dialog</button>
+    <button id="modalBtn" class="btn dds-open-modal">Open Dialog</button>
 
-    <div id="modal" class="modal flex gone">
+    <div id="modal" class="dds-c-modal__container flex gone">
         <div class="modal-wrapper">
             <div class="modal-title flex">
                 <h3 class="title">Title</h3>
-                <button class="modal-focus"><i class="fas fa-times" id="closeIcon"></i></button>
+                <button class="dds-c-modal-focus"><i class="fas fa-times" id="closeIcon"></i></button>
             </div>
-            <div class="modal-body">
+            <p class="dds-c-modal__content-body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus deserunt incidunt aspernatur odio commodi blanditiis? Lorem ipsum dolor sit amet.
-            </div>
-            <div class="modal-input"><input type="text" name="modalInput" id="modalInput" class="modal-focus" placeholder="Email"></div>
-            <div class="modal-footer flex"><button id="closeBtn" class="btn modal-focus">Close</button></div>
+            </p>
+            <div class="modal-input"><input type="text" name="modalInput" id="modalInput" class="dds-c-modal-focus" placeholder="Email"></div>
+            <div class="modal-footer flex"><button id="closeBtn" class="btn dds-c-modal-focus">Close</button></div>
 
         </div>
     </div>

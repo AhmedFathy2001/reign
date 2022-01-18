@@ -40,7 +40,11 @@ body {
     cursor: pointer;
 }
 
-.gone {
+.is-visible {
+    display: block;
+}
+
+.dds-c-modal__container {
     display: none;
 }
 
@@ -71,7 +75,7 @@ body {
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
 }
 
-.modal-body {
+.dds-c-modal__content-body {
     margin-bottom: 2rem;
 }
 

@@ -1,26 +1,29 @@
-let modalFocus = Array.from(document.querySelectorAll('.modal-focus'));
-let closeIcon = document.getElementById('closeIcon');
-let modal = document.getElementById('modal');
-let modalBtn = document.getElementById('modalBtn');
-//index to move around in the array of focusable elements
-let currentIndex = 0;
+const close = document.querySelector('.dds-c-modal--close');
+const closeBtn = document.querySelector('#closeBtn')
+const modal = document.getElementById('modal');
+const open = document.querySelector('.dds-open-modal');
 
-//closeing buttons for the modal
-[closeBtn, closeIcon].forEach(button => {
+
+//closing buttons for the modal
+[closeBtn, close].forEach(button => {
     button.addEventListener('click', () => {
-        modal.classList.add("gone");
-        modalBtn.focus();
+        modal.classList.remove("is-visible");
+        open.focus();
     });
 });
 
+let focus = Array.from(document.querySelectorAll('.dds-c-modal-focus'));
+
+//index to move around in the array of focusable elements
+let currentIndex = 0;
 //listens for keyboard clicks
 document.addEventListener('keydown', e => {
     //checks if the modal is open or not
-    if (!modal.classList.contains("gone")) {
+    if (modal.classList.contains("is-visible")) {
         //closes the modal on escape button click
         if (e.key == "Escape") {
-            modal.classList.add("gone");
-            modalBtn.focus();
+            modal.classList.remove("is-visible");
+            open.focus();
         }
         // moves focus to previously focused element on shift + tab press
         else if (e.shiftKey && e.key == "Tab") {
@@ -28,13 +31,13 @@ document.addEventListener('keydown', e => {
             e.preventDefault();
             //checks if the current focusable element is the first element if so it goes to the last focusable element
             if (currentIndex == 0) {
-                currentIndex = modalFocus.length - 1;
-                modalFocus[currentIndex].focus();
+                currentIndex = focus.length - 1;
+                focus[currentIndex].focus();
             }
             //moves focus to the previous element
             else {
                 currentIndex--;
-                modalFocus[currentIndex].focus();
+                focus[currentIndex].focus();
             }
         }
         //moves focus to next focusable element on tab press
@@ -42,21 +45,21 @@ document.addEventListener('keydown', e => {
             //prevents the default tab behavior 
             e.preventDefault();
             //checks if the current focusable element is the last element if so it goes to the first focusable element
-            if (currentIndex >= modalFocus.length - 1) {
+            if (currentIndex >= focus.length - 1) {
                 currentIndex = 0;
-                modalFocus[currentIndex].focus();
+                focus[currentIndex].focus();
             }
             //moves focus to the next element
             else {
                 currentIndex++
-                modalFocus[currentIndex].focus();
+                focus[currentIndex].focus();
             }
         }
     }
 });
 
 //opens the modal on button click
-modalBtn.addEventListener('click', () => {
-    modal.classList.remove("gone");
+open.addEventListener('click', () => {
+    modal.classList.add("is-visible");
     closeBtn.focus();
 })
