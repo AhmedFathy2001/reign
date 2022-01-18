@@ -58,5 +58,5 @@ document.addEventListener('keydown', e => {
 //opens the modal on button click
 open.addEventListener('click', () => {
     modal.classList.add("is-visible");
-    closeBtn.focus();
+    close.focus();
 })
