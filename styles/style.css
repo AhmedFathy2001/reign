@@ -5,7 +5,7 @@ body {
     font-family: sans-serif;
 }
 
-.modal {
+.dds-c-modal__container {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
@@ -14,13 +14,11 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-}
-
-.flex {
-    display: flex;
+    display: none;
 }
 
 .modal-title {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -38,10 +36,6 @@ body {
 .fa-times {
     font-size: 30px;
     cursor: pointer;
-}
-
-.gone {
-    display: none;
 }
 
 .btn {
@@ -63,7 +57,7 @@ body {
 }
 
 .is-visible {
-    display: block;
+    display: flex;
 }
 
 .btn:hover {
@@ -75,13 +69,8 @@ body {
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
 }
 
-.modal-body {
+.dds-c-modal__content-body {
     margin-bottom: 2rem;
-}
-
-.modal-footer {
-    width: 100%;
-    justify-content: end;
 }
 
 .modal-input {
