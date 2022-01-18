@@ -1,21 +1,18 @@
+let focus = Array.from(document.querySelectorAll('.dds-c-modal-focus'));
 const close = document.querySelector('.dds-c-modal--close');
-const closeBtn = document.querySelector('#closeBtn')
-const modal = document.getElementById('modal');
-const open = document.querySelector('.dds-open-modal');
+const modal = document.querySelector('.dds-c-modal');
+const open = document.querySelector('#dds-js-open-modal');
 
 
 //closing buttons for the modal
-[closeBtn, close].forEach(button => {
-    button.addEventListener('click', () => {
-        modal.classList.remove("is-visible");
-        open.focus();
-    });
+close.addEventListener('click', () => {
+    modal.classList.remove("is-visible");
+    open.focus();
 });
-
-let focus = Array.from(document.querySelectorAll('.dds-c-modal-focus'));
 
 //index to move around in the array of focusable elements
 let currentIndex = 0;
+
 //listens for keyboard clicks
 document.addEventListener('keydown', e => {
     //checks if the modal is open or not
